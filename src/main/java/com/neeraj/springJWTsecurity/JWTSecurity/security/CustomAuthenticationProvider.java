@@ -37,6 +37,7 @@ public class CustomAuthenticationProvider extends AbstractUserDetailsAuthenticat
 	@Override
 	protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken arg1)
 			throws AuthenticationException {
+		System.out.println("*****Reached inside custom authentication provider*****");
 		JWTAuthenticationToken jwtToken=(JWTAuthenticationToken)arg1;
 		String token=jwtToken.getToken();
 		JwtUser jwtUser =(JwtUser) jwtValidator.validate(token);
